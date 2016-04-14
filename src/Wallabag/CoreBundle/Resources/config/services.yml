@@ -114,3 +114,9 @@ services:
         class: Wallabag\CoreBundle\Operator\Doctrine\Matches
         tags:
             - { name: rulerz.operator, executor: rulerz.executor.doctrine, operator: matches, inline: true }
+
+    wallabag_core.helper.prepare_pager_for_entries:
+        class: Wallabag\CoreBundle\Helper\PreparePagerForEntries
+        arguments:
+            - "@security.token_storage"
+            - "@router"
